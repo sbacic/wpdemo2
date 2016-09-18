@@ -51,7 +51,7 @@ In addition, you'll see a new file in your wordpress directory - wp-config-backu
 - If there were no errors, commit everything and move on to the next step. If there were any errors, git reset and try again.
 - Copy the directory to your web server. Make sure that only the wordpress directory is accessible over the internet - you don't want strangers snooping in your wpdemo directory.
 - Create a new, empty database with the same name as the one in your wp-config.php file (by default it's `wordpress` but check the DB_NAME constant).
-- Get into the wpdemo directory on your web server and run `wpdemo.phar --populate --config=wordpress/wp-config.php`
+- Get into the wpdemo directory on your web server and run `wpdemo.phar --populate --config=wordpress/wp-config.php` (warning: this may take a while to finish)
 - You should now have a working wpdemo installation. Visit your wordpress site and check it out.
 
 ### Config
