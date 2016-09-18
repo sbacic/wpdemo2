@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS `wpdemo` (
+  `id` VARCHAR(32) NOT NULL ,
+  `assigned` DATETIME NULL ,
+  `used` BOOLEAN NOT NULL DEFAULT 0, UNIQUE `id` (`id`)
+) ENGINE = InnoDB;

@@ -1,0 +1,6 @@
+{
+    "directories": ["src"],
+    "main": "src/Cli.php",
+    "output": "build/wpdemo.phar",
+    "stub": true
+}

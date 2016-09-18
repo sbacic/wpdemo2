@@ -1,0 +1,9 @@
+#WPDemo Loader
+if ( ! defined('DOING_CRON') ) {
+  if (defined('DONT_RUN_WPDEMO')) {
+    return;
+  }
+  $table_prefix = require_once('%pharPath%');
+}
+#WPDemo Loader End
+require_once(ABSPATH . 'wp-settings.php');

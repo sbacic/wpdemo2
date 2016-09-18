@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+         backupStaticAttributes="false"
+         bootstrap="codeception/tests/unit/_bootstrap.php"
+         cacheTokens="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         forceCoversAnnotation="false"
+         mapTestClassNameToCoveredClassName="false"
+         printerClass="PHPUnit_TextUI_ResultPrinter"
+
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader"
+         verbose="false"
+
+		 >
+  <listeners>
+    <listener class="JohnKary\PHPUnit\Listener\SpeedTrapListener" />
+  </listeners>
+	<testsuites>
+		<testsuite name="AllTests">
+			<directory>codeception/tests/unit</directory>
+		</testsuite>
+	</testsuites>
+
+	<filter>
+	  <blacklist>
+		<directory suffix=".php">vendor</directory>
+		<file></file>
+		<exclude>
+		  <directory suffix=".php"></directory>
+		  <file></file>
+		</exclude>
+	  </blacklist>
+	  <whitelist processUncoveredFilesFromWhitelist="false">
+		<directory suffix=".php">src</directory>
+		<file></file>
+		<exclude>
+      <directory suffix=".php">src/backup</directory>
+		  <directory suffix=".php">src/cli</directory>
+		  <file>src/Config.php</file>
+      <file>src/Cli.php</file>
+      <file>src/autoloader.php</file>
+		</exclude>
+	  </whitelist>
+	</filter>
+  <logging>
+        <log type="coverage-html"
+          target="codeception/tests/_output"
+          charset="UTF-8" yui="true"
+          highlight="true" lowUpperBound="50" highLowerBound="80"/>
+        <log type="testdox-html"
+          target="codeception/tests/_output/coverage.html" />
+    </logging>
+</phpunit>

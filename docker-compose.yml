@@ -1,0 +1,31 @@
+wordpress:
+  container_name: wpdemo
+  build: '.'
+  dockerfile: ./dockerfiles/Dockerfile
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
+  volumes:
+    - ./www:/var/www/html
+
+db:
+  container_name: wpdemo_db
+  image: mariadb:latest
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: example
+  volumes:
+    - ./dumps:/docker-entrypoint-initdb.d
+
+phpmyadmin:
+    container_name: wpdemo_pma
+    image: splattael/phpmyadmin
+    links:
+        - db:mysql
+    ports:
+      - 8081:80
+    environment:
+        MYSQL_USERNAME: root
+        MYSQL_ROOT_PASSWORD: example

@@ -1,0 +1,44 @@
+{
+    "name": "sbacic/wpdemo",
+    "description": "Easily demo your Wordpress themes and plugins.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Slaven Bacic",
+            "email": "bacic.slaven@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "kherge/box": "^2.7",
+        "codeception/codeception": "^2.2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "sbacic\\wpdemo\\": "src/"
+        }
+    },
+    "scripts": {
+      "coverage" : ["@composer -q loud-coverage"],
+      "loud-coverage" : [
+        "codecept run unit --coverage-html",
+        "printf '\nCoverage: file://%s \n' $(readlink -f tests/_output/coverage/index.html)"
+      ],
+      "up" : [
+        "docker rm wpdemo_pma; true",
+        "docker-compose up -d"
+      ],
+      "stop" : [
+        "docker-compose stop"
+      ],
+      "docker-setup" : [
+        "docker-compose down",
+        "docker-compose up -d"
+      ],
+      "build" : [
+        "rm -rf build/*",
+        "mkdir -p build",
+        "php -d phar.readonly=0 vendor/bin/box build",
+        "chmod +x build/wpdemo.phar"
+        ]
+    }
+}

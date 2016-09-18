@@ -1,0 +1,5 @@
+src/backup
+www
+vendor
+tests/unit/tmp
+tests/_output
