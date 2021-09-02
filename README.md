@@ -1,3 +1,7 @@
+# Important
+
+This repository is not actively maintained and has not been for some time. There may be security vulnerabilities. If you insist on using it, I strongly suggest you fix any security vulnerabilities yourself before using it.
+
 ### What is WPDemo?
 WPDemo is a CLI script that creates copies of your Wordpress installation.
 Its main goal is to provide plugin and theme authors a way to showcase their work
